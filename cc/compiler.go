@@ -336,6 +336,10 @@ func (compiler *baseCompiler) compilerFlags(ctx ModuleContext, flags Flags) Flag
 			flags.GlobalFlags = append(flags.GlobalFlags, "-D__BRILLO__")
 		}
 
+		if (Bool(ctx.AConfig().ProductVariables.Mtk_hardware)) {
+			flags.CppFlags = append(flags.CppFlags, "-DMTK_HARDWARE")
+		}
+
 		if ctx.Device() {
 			if Bool(compiler.Properties.Rtti) {
 				flags.CppFlags = append(flags.CppFlags, "-frtti")

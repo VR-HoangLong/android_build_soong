@@ -69,6 +69,13 @@ type variableProperties struct {
 			Cflags []string
 		}
 
+		// Add BOARD_USES_MTK_HARDWARE
+		// This controls Mediatek code specifics
+		Mtk_hardware struct {
+			Cflags []string
+			Cppflags []string
+		}
+
 		// treble is true when a build is a Treble compliant device.  This is automatically set when
 		// a build is shipped with Android O, but can be overriden.  This controls such things as
 		// the sepolicy split and enabling the Treble linker namespaces.
@@ -143,6 +150,7 @@ type productVariables struct {
 	Eng                        *bool `json:",omitempty"`
 	EnableCFI                  *bool `json:",omitempty"`
 	Device_uses_hwc2           *bool `json:",omitempty"`
+	Mtk_hardware               *bool `json:",omitempty"`
 	Treble                     *bool `json:",omitempty"`
 	Pdk                        *bool `json:",omitempty"`
 
